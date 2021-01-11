@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'news_screen.dart';
+import 'sreens/news_screen.dart';
 
 void main() => runApp(new ItWayApp());
 

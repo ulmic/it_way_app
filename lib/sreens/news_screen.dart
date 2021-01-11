@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'news_data.dart';
-import 'news_card.dart';
+import '../components/news_card.dart';
 
 class NewsScreen extends StatefulWidget {
   @override
