@@ -6,12 +6,11 @@ class VideoCard extends StatefulWidget {
   const VideoCard({
     @required this.videoTitle,
     @required this.videoImage,
-    @required this.typeOfContent,
   });
 
   final String videoTitle;
   final String videoImage;
-  final String typeOfContent;
+
   @override
   _VideoCardState createState() => _VideoCardState();
 }
@@ -19,7 +18,6 @@ class VideoCard extends StatefulWidget {
 class _VideoCardState extends State<VideoCard> {
   String get videoTitle => widget.videoTitle;
   String get videoImage => widget.videoImage;
-  String get typeOfContent => widget.typeOfContent;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +34,6 @@ class _VideoCardState extends State<VideoCard> {
             print('Card tapped');
           },
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -47,7 +44,7 @@ class _VideoCardState extends State<VideoCard> {
                     topRight: Radius.circular(15),
                   ),
                   image: DecorationImage(
-                    image: AssetImage(videoImage),
+                    image: NetworkImage(videoImage),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -59,12 +56,14 @@ class _VideoCardState extends State<VideoCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      typeOfContent,
+                      'ВИДЕО',
                       style: LibraryStyle.subtitleStyle,
                     ),
                     Text(
                       videoTitle,
                       style: LibraryStyle.headingVideo,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),

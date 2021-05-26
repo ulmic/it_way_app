@@ -22,6 +22,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0.5,
       backgroundColor: Colors.white,
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(15.0),

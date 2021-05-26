@@ -28,6 +28,7 @@ class PodcastCubit extends Cubit<PodcastStates> {
         podcastNumber: podcastNumber,
         podcastTitle: podcastTitle,
         publishedAt: publishedAt,
+        audioFile: 'сделать',
       );
       podcasts.add(podcast);
     }
@@ -38,11 +39,6 @@ class PodcastCubit extends Cubit<PodcastStates> {
   dynamic getjson() async {
     final response = await http
         .get('http://red-magic.ru/api/v1/records?model=Podcast::Episode');
-    if (response.statusCode > 2) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      print('added');
-    }
     final json = jsonDecode(response.body);
     return json['data'];
   }

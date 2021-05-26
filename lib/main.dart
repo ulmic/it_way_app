@@ -58,20 +58,22 @@ class _ItWayAppState extends State<ItWayApp> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                LibraryAssets.videoIcon,
+                LibraryAssets.videoicon,
               ),
               label: 'Видео',
             ),
             BottomNavigationBarItem(
-              icon: Icon(LibraryAssets.contentIcon),
+              icon: Icon(LibraryAssets.contenticon),
               label: 'Лента',
             ),
             BottomNavigationBarItem(
-              icon: Icon(LibraryAssets.newsIcon),
+              icon: Icon(
+                LibraryAssets.newsicon,
+              ),
               label: 'Статьи',
             ),
             BottomNavigationBarItem(
-              icon: Icon(LibraryAssets.bookmarlIcon),
+              icon: Icon(LibraryAssets.bookmarkicon),
               label: 'Закладки',
             ),
           ],

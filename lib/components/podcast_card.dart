@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:it_way_app/data/podcast_data.dart';
+import 'package:it_way_app/sreens/one_podcast_screen.dart';
 
 import 'package:it_way_app/statics/style.dart';
 
 class PodcastCard extends StatefulWidget {
   const PodcastCard({
-    @required this.podcastTitle,
-    @required this.podcastNumber,
-    @required this.podcastImage,
-    @required this.playingTimeOfPodcast,
-    @required this.publishedAt,
+    @required this.data,
   });
 
-  final String podcastTitle;
-  final String podcastNumber;
-  final String podcastImage;
-  final String playingTimeOfPodcast;
-  final String publishedAt;
+  final PodcastData data;
   @override
   _PodcastCardStateState createState() => _PodcastCardStateState();
 }
 
 class _PodcastCardStateState extends State<PodcastCard> {
-  String get podcastTitle => widget.podcastTitle;
-  String get podcastNumber => widget.podcastNumber;
-  String get podcastImage => widget.podcastImage;
-  String get playingTimeOfPodcast => widget.playingTimeOfPodcast;
-  String get publishedAt => widget.publishedAt;
+  String get podcastTitle => widget.data.podcastTitle;
+  String get podcastNumber => widget.data.podcastNumber.toString();
+  String get podcastImage => widget.data.podcastImageURL;
+  String get playingTimeOfPodcast => widget.data.playingTimeOfPodcast;
+  String get publishedAt => widget.data.publishedAt;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +33,7 @@ class _PodcastCardStateState extends State<PodcastCard> {
         elevation: 5,
         child: InkWell(
           onTap: () {
-            print('Card tapped');
+            // Navigator.pushNamed(context, OnePodcastScreen,arguments: widget.data );
           },
           child: Stack(
             children: [

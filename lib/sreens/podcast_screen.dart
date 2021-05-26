@@ -52,11 +52,7 @@ class _PodcastScreen extends State<PodcastScreen> {
     for (final podcastData in listPodcatData) {
       listPodcasts.add(
         PodcastCard(
-          podcastTitle: podcastData.podcastTitle,
-          podcastNumber: podcastData.podcastNumber.toString(),
-          podcastImage: podcastData.podcastImageURL,
-          playingTimeOfPodcast: podcastData.playingTimeOfPodcast,
-          publishedAt: podcastData.publishedAt,
+          data: podcastData,
         ),
       );
     }
