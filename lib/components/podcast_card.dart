@@ -3,6 +3,8 @@ import 'package:it_way_app/data/podcast_data.dart';
 import 'package:it_way_app/sreens/one_podcast_screen.dart';
 
 import 'package:it_way_app/statics/style.dart';
+import 'package:it_way_app/screen_navigation.dart';
+import 'package:it_way_app/statics/navigation.dart';
 
 class PodcastCard extends StatefulWidget {
   const PodcastCard({
@@ -33,7 +35,13 @@ class _PodcastCardStateState extends State<PodcastCard> {
         elevation: 5,
         child: InkWell(
           onTap: () {
-            // Navigator.pushNamed(context, OnePodcastScreen,arguments: widget.data );
+            ScreenNavigation.routeTo(
+              route: LibraryRoutes.onePodcastScreen,
+              context: context,
+              bundle: <String, dynamic>{
+                'data': widget.data,
+              },
+            );
           },
           child: Stack(
             children: [

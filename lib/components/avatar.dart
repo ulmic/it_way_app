@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:it_way_app/sreens/profile_screen.dart';
+
+import 'package:it_way_app/screen_navigation.dart';
+import 'package:it_way_app/statics/navigation.dart';
 
 class Avatar extends StatefulWidget {
   @override
@@ -11,8 +13,8 @@ class _AvatarState extends State<Avatar> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+        ScreenNavigation.routeTo(
+            route: LibraryRoutes.profileScreen, context: context);
       },
       child: CircleAvatar(
         radius: 24.0,

@@ -5,6 +5,8 @@ import 'package:it_way_app/components/login_button.dart';
 import 'package:it_way_app/statics/style.dart';
 import 'package:it_way_app/statics/colors.dart';
 import 'package:it_way_app/statics/assets.dart';
+import 'package:it_way_app/screen_navigation.dart';
+import 'package:it_way_app/statics/navigation.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -21,7 +23,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            ScreenNavigation.routeTo(
+                route: LibraryRoutes.pop, context: context);
           },
           child: Icon(
             LibraryAssets.back,
