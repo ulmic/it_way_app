@@ -28,7 +28,7 @@ class _PodcastScreen extends State<PodcastScreen> {
       appBar: AppBarWidget(typeOfContent: 'Подкасты'),
       body: SafeArea(
         child: BlocBuilder<PodcastCubit, PodcastStates>(
-          cubit: podcastScreenCubit,
+          bloc: podcastScreenCubit,
           builder: (BuildContext context, PodcastStates state) {
             if (state.status == PodcastStatus.dataLoading) {}
             if (state.status == PodcastStatus.failure) {}

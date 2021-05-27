@@ -27,7 +27,7 @@ class _VideoScreenState extends State<VideoScreen> {
       appBar: AppBarWidget(typeOfContent: 'Видео'),
       body: SafeArea(
         child: BlocBuilder<VideoCubit, VideoStates>(
-          cubit: videoScreenCubit,
+          bloc: videoScreenCubit,
           builder: (BuildContext context, VideoStates state) {
             if (state.status == VideoStatus.dataLoaded) {
               final List<VideoData> listVideoData = state.video;

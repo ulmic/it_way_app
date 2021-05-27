@@ -33,8 +33,8 @@ class VideoCubit extends Cubit<VideoStates> {
   }
 
   dynamic getjson() async {
-    final response =
-        await http.get('http://red-magic.ru/api/v1/records?model=Video');
+    final response = await http
+        .get(Uri.parse('http://red-magic.ru/api/v1/records?model=Video'));
     final json = jsonDecode(response.body);
     return json['data'];
   }
