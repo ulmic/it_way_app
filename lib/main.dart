@@ -5,11 +5,15 @@ import 'package:it_way_app/sreens/podcast_screen.dart';
 import 'package:it_way_app/sreens/video_screen.dart';
 import 'package:it_way_app/statics/style.dart';
 import 'package:it_way_app/sreens/content_screen.dart';
+import 'package:it_way_app/audio_player/injection_container.dart' as di;
 
 import 'statics/assets.dart';
 import 'statics/colors.dart';
 
-void main() => runApp(new ItWayApp());
+void main() {
+  runApp(new ItWayApp());
+  di.init();
+}
 
 class ItWayApp extends StatefulWidget {
   static List<Widget> _widgetOptions = <Widget>[
