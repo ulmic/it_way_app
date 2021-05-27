@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:it_way_app/data/podcast_data.dart';
-import 'package:it_way_app/sreens/one_podcast_screen.dart';
 
 import 'package:it_way_app/statics/style.dart';
 import 'package:it_way_app/screen_navigation.dart';
@@ -51,7 +50,7 @@ class _PodcastCardStateState extends State<PodcastCard> {
                   image: DecorationImage(
                     image: podcastImage != null
                         ? NetworkImage(podcastImage)
-                        : AssetImage('assets/images/podcast.gpg'),
+                        : AssetImage('assets/images/podcast.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),

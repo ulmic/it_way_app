@@ -7,6 +7,7 @@ import 'package:it_way_app/statics/colors.dart';
 import 'package:it_way_app/statics/assets.dart';
 import 'package:it_way_app/screen_navigation.dart';
 import 'package:it_way_app/statics/navigation.dart';
+import 'package:it_way_app/components/appBarBack.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -18,20 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        leading: GestureDetector(
-          onTap: () {
-            ScreenNavigation.routeTo(
-                route: LibraryRoutes.pop, context: context);
-          },
-          child: Icon(
-            LibraryAssets.back,
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: AppBarBack(),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
