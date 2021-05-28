@@ -14,8 +14,6 @@ import 'package:it_way_app/audio_player/injection_container.dart' as di;
 
 import 'package:it_way_app/audio_player/injection_container.dart';
 
-import 'package:it_way_app/audio_player/theme_factory.dart';
-
 import 'package:flutter/services.dart';
 
 class OnePodcastScreen extends StatefulWidget {
@@ -31,6 +29,7 @@ class OnePodcastScreen extends StatefulWidget {
 class _OnePodcastScreenState extends State<OnePodcastScreen> {
   String get podcastImage => widget.data.podcastImageURL;
   String get podcastTitle => widget.data.podcastTitle;
+  String get podcastNumber => widget.data.podcastNumber.toString();
   static const _errorBarHeight = 80.0;
   AudioTrack audioTrack;
 
@@ -38,7 +37,7 @@ class _OnePodcastScreenState extends State<OnePodcastScreen> {
   void initState() {
     audioTrack = AudioTrack(
       'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', //widget.data.audioFile,
-      widget.data.publishedAt, // тут должно быть описание
+      widget.data.podcastNumber.toString(), // тут должно быть описание
       widget.data.podcastImageURL,
       widget.data.podcastTitle,
     );

@@ -52,7 +52,7 @@ class MusicPlayer extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            mediaPlayerState.audioTrack?.title ?? '',
+                            'Эпизод ${mediaPlayerState.audioTrack?.number ?? ''} ',
                             style: LibraryStyle.onePodcastHeading,
                             textAlign: TextAlign.center,
                           ),

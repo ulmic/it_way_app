@@ -1,13 +1,13 @@
 class AudioTrack {
   final String url;
 
-  final String description;
+  final String number;
   final String imageUrl;
   final String title;
 
   AudioTrack(
     this.url,
-    this.description,
+    this.number,
     this.imageUrl,
     this.title,
   );

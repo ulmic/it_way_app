@@ -3,12 +3,12 @@ import 'package:it_way_app/audio_player/features/audio_track/domain/entities/aud
 class AudioTrackModel extends AudioTrack {
   AudioTrackModel(
     String url,
-    String description,
+    String number,
     String imageUrl,
     String title,
   ) : super(
           url,
-          description,
+          number,
           imageUrl,
           title,
         );
