@@ -20,11 +20,13 @@ class VideoCubit extends Cubit<VideoStates> {
       final String videoTitle = attributes['title'];
       final String videoPreviewURL = attributes['preview'];
       final String videoDescription = attributes['description'];
+      final String videoURL = attributes['url'];
 
       VideoData video = VideoData(
         videoTitle: videoTitle,
         videoDescription: videoDescription,
         videoPreviewURL: videoPreviewURL,
+        videoURL: videoURL,
       );
 
       videoList.add(video);

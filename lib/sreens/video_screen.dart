@@ -48,8 +48,7 @@ class _VideoScreenState extends State<VideoScreen> {
     for (final videoData in listVideoData) {
       listVideo.add(
         VideoCard(
-          videoTitle: videoData.videoTitle,
-          videoImage: videoData.videoPreviewURL,
+          data: videoData,
         ),
       );
     }

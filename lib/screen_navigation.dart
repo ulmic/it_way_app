@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:it_way_app/sreens/one_video_screen.dart';
 import 'package:it_way_app/statics/navigation.dart';
 import 'package:it_way_app/sreens/profile_screen.dart';
 import 'package:it_way_app/sreens/one_podcast_screen.dart';
@@ -23,6 +24,15 @@ class ScreenNavigation {
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) => OnePodcastScreen(
+              data: bundle['data'],
+            ),
+          ),
+        );
+        break;
+      case LibraryRoutes.oneVideoScreen:
+        Navigator.of(context).push(
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) => OneVideoScreen(
               data: bundle['data'],
             ),
           ),

@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:it_way_app/data/video_data.dart';
 
 import 'package:it_way_app/statics/style.dart';
+import 'package:it_way_app/screen_navigation.dart';
+import 'package:it_way_app/statics/navigation.dart';
 
 class VideoCard extends StatefulWidget {
   const VideoCard({
-    @required this.videoTitle,
-    @required this.videoImage,
+    @required this.data,
   });
 
-  final String videoTitle;
-  final String videoImage;
+  final VideoData data;
 
   @override
   _VideoCardState createState() => _VideoCardState();
 }
 
 class _VideoCardState extends State<VideoCard> {
-  String get videoTitle => widget.videoTitle;
-  String get videoImage => widget.videoImage;
+  String get videoTitle => widget.data.videoTitle;
+  String get videoImage => widget.data.videoPreviewURL;
+  String get videoURl => widget.data.videoURL;
+  String get description => widget.data.videoDescription;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,13 @@ class _VideoCardState extends State<VideoCard> {
         elevation: 5,
         child: InkWell(
           onTap: () {
-            print('Card tapped');
+            ScreenNavigation.routeTo(
+              route: LibraryRoutes.oneVideoScreen,
+              context: context,
+              bundle: <String, dynamic>{
+                'data': widget.data,
+              },
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
