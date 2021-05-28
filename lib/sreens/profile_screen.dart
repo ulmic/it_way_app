@@ -5,8 +5,7 @@ import 'package:it_way_app/components/login_button.dart';
 import 'package:it_way_app/statics/style.dart';
 import 'package:it_way_app/statics/colors.dart';
 import 'package:it_way_app/statics/assets.dart';
-import 'package:it_way_app/screen_navigation.dart';
-import 'package:it_way_app/statics/navigation.dart';
+
 import 'package:it_way_app/components/appBarBack.dart';
 
 class ProfileScreen extends StatefulWidget {

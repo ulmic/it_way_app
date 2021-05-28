@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:it_way_app/blocs/podcast/podcast_state.dart';
 import 'package:it_way_app/blocs/video/video_cubit.dart';
 import 'package:it_way_app/blocs/video/video_state.dart';
 import 'package:it_way_app/components/video_card.dart';
