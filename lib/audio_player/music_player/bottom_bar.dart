@@ -5,7 +5,7 @@ import 'package:it_way_app/audio_player/injection_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:it_way_app/statics/colors.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar(this.track);
@@ -13,7 +13,6 @@ class BottomBar extends StatelessWidget {
   final AudioTrack track;
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final mediaQuery = MediaQuery.of(context);
 
     return MultiBlocProvider(
@@ -48,7 +47,7 @@ class BottomBar extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.only(bottom: mediaQuery.padding.bottom),
             child: Column(children: [
-              Divider(thickness: 0.5, color: theme.hintColor),
+              Divider(thickness: 0.5, color: LibraryColors.kUnActiveColor),
               Padding(
                 padding: const EdgeInsets.only(top: 6.0, bottom: 12),
                 child: Row(
@@ -56,31 +55,28 @@ class BottomBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
-                      onPressed: () {
-                        print('backward 15 on tap');
-                        Duration newPosition =
-                            _playingPosition - Duration(seconds: 15);
-                        BlocProvider.of<MediaPlayerCubit>(context)
-                            .seek(newPosition);
-                      },
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(Size(40, 40)),
-                        padding: MaterialStateProperty.all(EdgeInsets.zero),
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/icons/ic_backward_15.svg',
-                        color: theme.colorScheme.onPrimary,
-                        width: 30,
-                        height: 30,
-                      ),
-                    ),
+                        onPressed: () {
+                          Duration newPosition =
+                              _playingPosition - Duration(seconds: 30);
+                          BlocProvider.of<MediaPlayerCubit>(context)
+                              .seek(newPosition);
+                        },
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(Size(40, 40)),
+                          padding: MaterialStateProperty.all(EdgeInsets.zero),
+                        ),
+                        child: Icon(
+                          Icons.replay_30,
+                          color: Colors.black,
+                          size: 30.0,
+                        )),
                     SizedBox(
                       width: 20,
                     ),
                     SizedBox(
                       width: 50,
                       height: 50,
-                      child: TextButton(
+                      child: FloatingActionButton(
                         onPressed: mediaPlayerState is MediaPlayerPlayingState
                             ? _pauseCallback
                             : mediaPlayerState is MediaPlayerInitialState ||
@@ -90,43 +86,36 @@ class BottomBar extends StatelessWidget {
                         child: mediaPlayerState is MediaPlayerPlayingState
                             ? Icon(
                                 Icons.pause,
-                                color: theme.colorScheme.onPrimary,
+                                color: Colors.white,
                                 size: 30,
                               )
                             : Icon(
                                 Icons.play_arrow,
-                                color: theme.colorScheme.onPrimary,
+                                color: Colors.white,
                                 size: 30,
                               ),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                theme.colorScheme.secondary),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.zero)),
+                        backgroundColor: Colors.black,
                       ),
                     ),
                     SizedBox(
                       width: 20,
                     ),
                     TextButton(
-                      onPressed: () {
-                        print('forward 30 on tap');
-                        Duration newPosition =
-                            _playingPosition + Duration(seconds: 30);
-                        BlocProvider.of<MediaPlayerCubit>(context)
-                            .seek(newPosition);
-                      },
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(Size(40, 40)),
-                        padding: MaterialStateProperty.all(EdgeInsets.zero),
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/icons/ic_forward_30.svg',
-                        color: theme.colorScheme.onPrimary,
-                        width: 30,
-                        height: 30,
-                      ),
-                    ),
+                        onPressed: () {
+                          Duration newPosition =
+                              _playingPosition + Duration(seconds: 30);
+                          BlocProvider.of<MediaPlayerCubit>(context)
+                              .seek(newPosition);
+                        },
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(Size(40, 40)),
+                          padding: MaterialStateProperty.all(EdgeInsets.zero),
+                        ),
+                        child: Icon(
+                          Icons.forward_30,
+                          color: Colors.black,
+                          size: 30.0,
+                        )),
                   ],
                 ),
               )
