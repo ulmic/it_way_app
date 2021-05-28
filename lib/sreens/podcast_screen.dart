@@ -35,6 +35,7 @@ class _PodcastScreen extends State<PodcastScreen> {
             if (state.status == PodcastStatus.dataLoaded) {
               final List<PodcastData> listPodcatData = state.podcats;
               return SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
                 child: Column(
                   children: buildPodcasts(listPodcatData),
                 ),

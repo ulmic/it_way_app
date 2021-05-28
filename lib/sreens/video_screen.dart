@@ -31,6 +31,7 @@ class _VideoScreenState extends State<VideoScreen> {
             if (state.status == VideoStatus.dataLoaded) {
               final List<VideoData> listVideoData = state.video;
               return SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
                 child: Column(
                   children: buildVideo(listVideoData),
                 ),

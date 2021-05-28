@@ -26,6 +26,11 @@ class LibraryStyle {
 
   static const settings =
       TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500);
+
   static const onePodcastHeading =
       TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500);
+
+  static const videoDescription = TextStyle(
+    fontSize: 14.0,
+  );
 }

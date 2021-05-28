@@ -7,7 +7,7 @@ import 'package:it_way_app/statics/assets.dart';
 class AppBarBack extends StatefulWidget implements PreferredSizeWidget {
   AppBarBack({
     Key key,
-  })  : preferredSize = Size.fromHeight(70.0),
+  })  : preferredSize = Size.fromHeight(60.0),
         super(key: key);
 
   @override
