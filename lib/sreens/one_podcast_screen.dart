@@ -49,37 +49,7 @@ class _OnePodcastScreenState extends State<OnePodcastScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarBrightness: Brightness.dark));
-    // return Scaffold(
-    //   appBar: AppBarBack(),
-    //   backgroundColor: Colors.white,
-    //   body: AudioServiceWidget(
-    //     child: SafeArea(
-    //       child: Column(
-    //         children: [
-    //           Center(
-    //             child: Container(
-    //               height: 300.0,
-    //               child: Image.network(podcastImage),
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: const EdgeInsets.all(15.0),
-    //             child: Text(
-    //               podcastTitle,
-    //               style: LibraryStyle.headingVideo,
-    //               textAlign: TextAlign.center,
-    //             ),
-    //           ),
 
-    //           ElevatedButton(
-    //             onPressed: () {},
-    //             child: Text('asd'),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
     return AudioServiceWidget(
       child: Scaffold(
         body: MultiBlocProvider(

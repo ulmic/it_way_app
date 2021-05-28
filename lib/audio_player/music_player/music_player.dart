@@ -15,7 +15,6 @@ class MusicPlayer extends StatelessWidget {
 
   final AudioTrack track;
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final mediaQuery = MediaQuery.of(context);
     bool started = false;
 
