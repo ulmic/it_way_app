@@ -5,6 +5,7 @@ import 'package:it_way_app/audio_player/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_way_app/statics/colors.dart';
 
 class ProgressBar extends StatelessWidget {
   @override
@@ -29,6 +30,8 @@ class ProgressBar extends StatelessWidget {
               : Duration(seconds: 0);
           return Stack(children: [
             Slider(
+              activeColor: Colors.black,
+              inactiveColor: LibraryColors.kUnActiveColor,
               value: (_playingPosition.inSeconds.toDouble() > 0 &&
                       _playingPosition.inSeconds.toDouble() <=
                           _playingDurationSeconds.toDouble())
