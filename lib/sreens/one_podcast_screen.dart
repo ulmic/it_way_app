@@ -36,7 +36,7 @@ class _OnePodcastScreenState extends State<OnePodcastScreen> {
   @override
   void initState() {
     audioTrack = AudioTrack(
-      'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', //widget.data.audioFile,
+      widget.data.audioFile,
       widget.data.podcastNumber.toString(), // тут должно быть описание
       widget.data.podcastImageURL,
       widget.data.podcastTitle,

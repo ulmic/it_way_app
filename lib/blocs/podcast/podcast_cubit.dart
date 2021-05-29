@@ -21,6 +21,7 @@ class PodcastCubit extends Cubit<PodcastStates> {
       final String podcastImageURL = attributes['image'];
       final String publishedAt = attributes['published-at'];
       final String playingTimeOfPodcast = attributes['duration'];
+      final String podcastFile = attributes['file-url'];
 
       PodcastData podcast = PodcastData(
         playingTimeOfPodcast: playingTimeOfPodcast,
@@ -28,7 +29,7 @@ class PodcastCubit extends Cubit<PodcastStates> {
         podcastNumber: podcastNumber,
         podcastTitle: podcastTitle,
         publishedAt: publishedAt,
-        audioFile: 'сделать',
+        audioFile: podcastFile,
       );
       podcasts.add(podcast);
     }
