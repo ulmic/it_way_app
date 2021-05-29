@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:it_way_app/data/news_data.dart';
 
 import 'package:it_way_app/statics/style.dart';
 
 class NewsCard extends StatefulWidget {
   const NewsCard({
-    @required this.newsTitle,
-    @required this.newsSubtitle,
-    @required this.newsImage,
-    @required this.typeOfContent,
+    @required this.data,
   });
 
-  final String newsTitle;
-  final String newsSubtitle;
-  final String newsImage;
-  final String typeOfContent;
+  final NewsData data;
 
   @override
   _NewsCardState createState() => _NewsCardState();
 }
 
 class _NewsCardState extends State<NewsCard> {
-  String get newsTitle => widget.newsTitle;
-  String get newsSubtitle => widget.newsSubtitle;
-  String get newsImage => widget.newsImage;
-  String get typeOfContent => widget.typeOfContent;
+  String get newsTitle => widget.data.newsTitle;
+  String get newsBody => widget.data.newsBody;
+  String get newsImage => widget.data.newsImageURL;
+  String get publishedAt => widget.data.publishedAt;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +40,7 @@ class _NewsCardState extends State<NewsCard> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                    image: AssetImage(newsImage),
+                    image: NetworkImage(newsImage),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -64,7 +59,7 @@ class _NewsCardState extends State<NewsCard> {
                     child: Row(
                       children: [
                         Text(
-                          typeOfContent,
+                          'Новости',
                           style: LibraryStyle.typeContentStyle,
                         ),
                         SizedBox(width: 5.0),
@@ -79,8 +74,11 @@ class _NewsCardState extends State<NewsCard> {
                     contentPadding: EdgeInsets.only(left: 15.0),
                     title: Text(newsTitle,
                         style: LibraryStyle.headingPodcastAndNews),
-                    subtitle:
-                        Text(newsSubtitle, style: LibraryStyle.subtitleStyle),
+                    subtitle: Text(
+                      newsBody,
+                      style: LibraryStyle.subtitleStyle,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
