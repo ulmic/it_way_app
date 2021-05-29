@@ -33,4 +33,6 @@ class LibraryStyle {
   static const videoDescription = TextStyle(
     fontSize: 14.0,
   );
+
+  static const loginButtonText = TextStyle(fontSize: 18.0, color: Colors.white);
 }

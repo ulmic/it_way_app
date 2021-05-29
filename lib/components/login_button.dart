@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:it_way_app/statics/style.dart';
 
 class LoginButton extends StatefulWidget {
-  final IconData iconOnCard;
+  final String nameOfCard;
   final Color color;
   final Function logIn;
   const LoginButton({
-    this.iconOnCard,
+    this.nameOfCard,
     this.color,
     this.logIn,
   });
@@ -23,10 +24,13 @@ class _LoginButtonState extends State<LoginButton> {
           color: widget.color,
         ),
         height: 50.0,
-        width: 140.0,
-        child: Icon(
-          widget.iconOnCard,
-          color: Colors.white,
+        width: MediaQuery.of(context).size.width,
+        child: Center(
+          child: Text(
+            widget.nameOfCard,
+            style: LibraryStyle.loginButtonText,
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
       onTap: widget.logIn,

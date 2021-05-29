@@ -42,40 +42,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 LoginButton(
-                  iconOnCard: LibraryAssets.vk,
+                  nameOfCard: 'Войти',
                   color: LibraryColors.kActiveColor,
                 ),
-                SizedBox(width: 20.0),
+                SizedBox(height: 10.0),
                 LoginButton(
-                  iconOnCard: LibraryAssets.google,
+                  nameOfCard: 'Зарегистрироваться',
                   color: LibraryColors.redColor,
                 ),
               ],
             ),
             SizedBox(height: 30.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Настройки'.toUpperCase(),
-                  style: LibraryStyle.settings,
-                ),
-                SizedBox(height: 10.0),
-                ReusableCadrInProfileScreen(
-                  iconOnCard: LibraryAssets.contenticon,
-                  nameOfCard: 'Лента',
-                ),
-                ReusableCadrInProfileScreen(
-                  iconOnCard: LibraryAssets.notifications,
-                  nameOfCard: 'Уведомления',
-                ),
-              ],
-            ),
-            SizedBox(height: 25.0),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     Text(
+            //       'Настройки'.toUpperCase(),
+            //       style: LibraryStyle.settings,
+            //     ),
+            //     SizedBox(height: 10.0),
+            //     ReusableCadrInProfileScreen(
+            //       iconOnCard: LibraryAssets.contenticon,
+            //       nameOfCard: 'Лента',
+            //     ),
+            //     ReusableCadrInProfileScreen(
+            //       iconOnCard: LibraryAssets.notifications,
+            //       nameOfCard: 'Уведомления',
+            //     ),
+            //   ],
+            // ),
+            // SizedBox(height: 25.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
