@@ -78,10 +78,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   controller: passwordController,
                   obscure: true,
                 ),
-                LoginButton(
-                  label: 'Зарегистрироваться',
-                  func: loginUser,
-                ),
+                (showLogin
+                    ? Column(
+                        children: [
+                          LoginButton(
+                            label: 'Зарегистрироваться',
+                            func: loginUser,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 10.0),
+                            child: GestureDetector(
+                              child: Column(
+                                children: [
+                                  Text('Уже зарегестрированы?'),
+                                  Text(
+                                    'Войдите.',
+                                    style: TextStyle(
+                                        color: LibraryColors.kActiveColor),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  showLogin = false;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          LoginButton(
+                            label: 'Войти',
+                            func: loginUser,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 10.0),
+                            child: GestureDetector(
+                              child: Column(
+                                children: [
+                                  Text('Еще не зарегестрированы?'),
+                                  Text(
+                                    'Регистрируйтесь.',
+                                    style: TextStyle(
+                                        color: LibraryColors.kActiveColor),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  showLogin = true;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      )),
               ],
             ),
             SizedBox(height: 30.0),
