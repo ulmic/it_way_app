@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:it_way_app/components/login_button.dart';
 import 'package:it_way_app/components/reusable_card.dart';
 import 'package:it_way_app/components/login_widget.dart';
+import 'package:it_way_app/services/auth.dart';
+import 'package:it_way_app/statics/navigation.dart';
 import 'package:it_way_app/statics/style.dart';
 import 'package:it_way_app/statics/colors.dart';
 import 'package:it_way_app/statics/assets.dart';
 
 import 'package:it_way_app/components/appBarBack.dart';
+import 'package:it_way_app/user.dart';
+
+import '../screen_navigation.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -22,14 +28,56 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String password;
   bool showLogin = true;
 
+  AuthSrevice authService = AuthSrevice();
+
   @override
   Widget build(BuildContext context) {
-    void loginUser() {
+    void loginUser() async {
       email = emailController.text;
       password = passwordController.text;
 
-      emailController.clear();
-      passwordController.clear();
+      if (email.isEmpty || password.isEmpty) return;
+
+      UserProfile user = await authService.signinWithEmailAndPassword(
+          email.trim(), password.trim());
+      if (user == null) {
+        Fluttertoast.showToast(
+            msg: 'Не удалось войти!',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            backgroundColor: Colors.red,
+            textColor: Colors.black,
+            fontSize: 16.0);
+      } else {
+        ScreenNavigation.routeTo(
+            route: LibraryRoutes.userScreenRemove, context: context);
+        emailController.clear();
+        passwordController.clear();
+      }
+    }
+
+    void registerUser() async {
+      email = emailController.text;
+      password = passwordController.text;
+
+      if (email.isEmpty || password.isEmpty) return;
+
+      UserProfile user = await authService.registrWithEmailAndPassword(
+          email.trim(), password.trim());
+      if (user == null) {
+        Fluttertoast.showToast(
+            msg: 'Не удалось зарегистрироваться!',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            backgroundColor: Colors.red,
+            textColor: Colors.black,
+            fontSize: 16.0);
+      } else {
+        ScreenNavigation.routeTo(
+            route: LibraryRoutes.userScreenRemove, context: context);
+        emailController.clear();
+        passwordController.clear();
+      }
     }
 
     return Scaffold(
@@ -83,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           LoginButton(
                             label: 'Зарегистрироваться',
-                            func: loginUser,
+                            func: registerUser,
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 10.0),

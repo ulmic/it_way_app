@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "562922606265",
+    "project_id": "itwayapp",
+    "storage_bucket": "itwayapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562922606265:android:e8fc19ff1f5a56e7a15568",
+        "android_client_info": {
+          "package_name": "com.example.it_way_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562922606265-dunshmrthmuiacvpf8d2htdlj5jtc5gp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVQ-UEQU5r4mJaRtUfLiBVMaBHsE34sbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562922606265-dunshmrthmuiacvpf8d2htdlj5jtc5gp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
