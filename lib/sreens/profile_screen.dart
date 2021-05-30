@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:it_way_app/components/reusable_card.dart';
 import 'package:it_way_app/components/login_button.dart';
+import 'package:it_way_app/components/reusable_card.dart';
+import 'package:it_way_app/components/login_widget.dart';
 import 'package:it_way_app/statics/style.dart';
 import 'package:it_way_app/statics/colors.dart';
 import 'package:it_way_app/statics/assets.dart';
@@ -14,9 +15,25 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  String email;
+  String password;
+  bool showLogin = true;
+
   @override
   Widget build(BuildContext context) {
+    void loginUser() {
+      email = emailController.text;
+      password = passwordController.text;
+
+      emailController.clear();
+      passwordController.clear();
+    }
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBarBack(),
       body: Padding(
@@ -45,37 +62,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                LoginButton(
-                  nameOfCard: 'Войти',
-                  color: LibraryColors.kActiveColor,
+                LoginWidget(
+                  icon: Icon(
+                    Icons.email,
+                  ),
+                  nameOfCard: 'Email',
+                  controller: emailController,
+                  obscure: false,
                 ),
-                SizedBox(height: 10.0),
+                LoginWidget(
+                  icon: Icon(
+                    Icons.lock,
+                  ),
+                  nameOfCard: 'Password',
+                  controller: passwordController,
+                  obscure: true,
+                ),
                 LoginButton(
-                  nameOfCard: 'Зарегистрироваться',
-                  color: LibraryColors.redColor,
+                  label: 'Зарегистрироваться',
+                  func: loginUser,
                 ),
               ],
             ),
             SizedBox(height: 30.0),
-            // Column(
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: [
-            //     Text(
-            //       'Настройки'.toUpperCase(),
-            //       style: LibraryStyle.settings,
-            //     ),
-            //     SizedBox(height: 10.0),
-            //     ReusableCadrInProfileScreen(
-            //       iconOnCard: LibraryAssets.contenticon,
-            //       nameOfCard: 'Лента',
-            //     ),
-            //     ReusableCadrInProfileScreen(
-            //       iconOnCard: LibraryAssets.notifications,
-            //       nameOfCard: 'Уведомления',
-            //     ),
-            //   ],
-            // ),
-            // SizedBox(height: 25.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

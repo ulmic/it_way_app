@@ -34,5 +34,13 @@ class LibraryStyle {
     fontSize: 14.0,
   );
 
-  static const loginButtonText = TextStyle(fontSize: 18.0, color: Colors.white);
+  static const loginText = TextStyle(
+    fontSize: 18.0,
+    color: LibraryColors.kActiveColor,
+  );
+
+  static const loginButtonText = TextStyle(
+    fontSize: 18.0,
+    color: Colors.white,
+  );
 }

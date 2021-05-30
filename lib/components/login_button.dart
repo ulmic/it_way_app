@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:it_way_app/statics/colors.dart';
 import 'package:it_way_app/statics/style.dart';
 
 class LoginButton extends StatefulWidget {
-  final String nameOfCard;
-  final Color color;
-  final Function logIn;
+  final String label;
+  final Function func;
   const LoginButton({
-    this.nameOfCard,
-    this.color,
-    this.logIn,
+    this.label,
+    this.func,
   });
   @override
   _LoginButtonState createState() => _LoginButtonState();
@@ -18,22 +17,23 @@ class _LoginButtonState extends State<LoginButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        widget.func();
+      },
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          color: widget.color,
-        ),
         height: 50.0,
         width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            color: LibraryColors.kActiveColor),
         child: Center(
           child: Text(
-            widget.nameOfCard,
+            widget.label,
             style: LibraryStyle.loginButtonText,
             textAlign: TextAlign.center,
           ),
         ),
       ),
-      onTap: widget.logIn,
     );
   }
 }
