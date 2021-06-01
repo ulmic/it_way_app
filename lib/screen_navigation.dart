@@ -6,6 +6,7 @@ import 'package:it_way_app/sreens/user_screen.dart';
 import 'package:it_way_app/statics/navigation.dart';
 import 'package:it_way_app/sreens/profile_screen.dart';
 import 'package:it_way_app/sreens/one_podcast_screen.dart';
+import 'package:it_way_app/sreens/one_news_screen.dart';
 
 class ScreenNavigation {
   static void routeTo({
@@ -52,6 +53,15 @@ class ScreenNavigation {
         Navigator.of(context).push(
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) => OneVideoScreen(
+              data: bundle['data'],
+            ),
+          ),
+        );
+        break;
+      case LibraryRoutes.oneNewsScreen:
+        Navigator.of(context).push(
+          MaterialPageRoute<Widget>(
+            builder: (BuildContext context) => OneNewsScreen(
               data: bundle['data'],
             ),
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:it_way_app/data/news_data.dart';
+import 'package:it_way_app/screen_navigation.dart';
+import 'package:it_way_app/statics/navigation.dart';
 
 import 'package:it_way_app/statics/style.dart';
 
@@ -32,6 +34,13 @@ class _NewsCardState extends State<NewsCard> {
         elevation: 5,
         child: InkWell(
           onTap: () {
+            ScreenNavigation.routeTo(
+              route: LibraryRoutes.oneNewsScreen,
+              context: context,
+              bundle: <String, dynamic>{
+                'data': widget.data,
+              },
+            );
             print('Card tapped');
           },
           child: Stack(
@@ -40,7 +49,9 @@ class _NewsCardState extends State<NewsCard> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                    image: NetworkImage(newsImage),
+                    image: newsImage != null
+                        ? NetworkImage(newsImage)
+                        : AssetImage('assets/images/news4.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -74,10 +85,13 @@ class _NewsCardState extends State<NewsCard> {
                     contentPadding: EdgeInsets.only(left: 15.0),
                     title: Text(newsTitle,
                         style: LibraryStyle.headingPodcastAndNews),
-                    subtitle: Text(
-                      newsBody,
-                      style: LibraryStyle.subtitleStyle,
-                      overflow: TextOverflow.ellipsis,
+                    subtitle: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        newsBody,
+                        style: LibraryStyle.subtitleStyle,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
                 ],

@@ -59,27 +59,3 @@ List<NewsCard> buildNews(List<NewsData> listNewsData) {
   }
   return listNews;
 }
-
-//List<NewsCard> newsData = [
-//   NewsCard(
-//       newsTitle: 'Новость 1',
-//       newsSubtitle: 'Второй текст',
-//       newsImage: 'assets/images/news1.jpg',
-//       typeOfContent: 'Новости'),
-//   NewsCard(
-//       newsTitle: 'Статья 1',
-//       newsSubtitle: 'Второй текст',
-//       newsImage: 'assets/images/news2.jpg',
-//       typeOfContent: 'Статья'),
-//   NewsCard(
-//       newsTitle: 'Новость 3',
-//       newsSubtitle:
-//           'текс текст текст текст текст текст текст текст текст текст текст текст текст текст текст',
-//       newsImage: 'assets/images/news3.jpg',
-//       typeOfContent: 'Новости'),
-//   NewsCard(
-//       newsTitle: 'Статья 2',
-//       newsSubtitle: 'Второй текст',
-//       newsImage: 'assets/images/news1.jpg',
-//       typeOfContent: 'Cтатья'),
-// ];

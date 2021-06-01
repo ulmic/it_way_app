@@ -31,8 +31,14 @@ class LibraryStyle {
       TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500);
 
   static const videoDescription = TextStyle(
-    fontSize: 14.0,
+    fontSize: 16.0,
   );
+  static const newsBody = TextStyle(
+    fontSize: 16.0,
+  );
+
+  static const oneNewsHeading =
+      TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500);
 
   static const loginText = TextStyle(
     fontSize: 18.0,

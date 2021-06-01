@@ -6,4 +6,5 @@ class LibraryRoutes {
   static const String userScreen = 'userScreen';
   static const String userScreenRemove = 'userScreenRemove';
   static const String registerScreenRemove = 'registerScreenRemove';
+  static const String oneNewsScreen = 'oneNewsScreen';
 }
