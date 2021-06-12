@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:it_way_app/blocs/podcast/podcast_cubit.dart';
 import 'package:it_way_app/blocs/podcast/podcast_state.dart';
+import 'package:it_way_app/components/loading.dart';
 import 'package:it_way_app/components/podcast_card.dart';
 import 'package:it_way_app/components/appBar.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_way_app/data/podcast_data.dart';
+import 'package:it_way_app/statics/colors.dart';
 
 class PodcastScreen extends StatefulWidget {
   @override
@@ -30,7 +32,9 @@ class _PodcastScreen extends State<PodcastScreen> {
         child: BlocBuilder<PodcastCubit, PodcastStates>(
           bloc: podcastScreenCubit,
           builder: (BuildContext context, PodcastStates state) {
-            if (state.status == PodcastStatus.dataLoading) {}
+            if (state.status == PodcastStatus.dataLoading) {
+              return LoadingApp();
+            }
             if (state.status == PodcastStatus.failure) {}
             if (state.status == PodcastStatus.dataLoaded) {
               final List<PodcastData> listPodcatData = state.podcats;

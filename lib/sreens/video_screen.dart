@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_way_app/blocs/video/video_cubit.dart';
 import 'package:it_way_app/blocs/video/video_state.dart';
+import 'package:it_way_app/components/loading.dart';
 import 'package:it_way_app/components/video_card.dart';
 import 'package:it_way_app/data/video_data.dart';
 import 'package:it_way_app/components/appBar.dart';
@@ -28,6 +29,9 @@ class _VideoScreenState extends State<VideoScreen> {
         child: BlocBuilder<VideoCubit, VideoStates>(
           bloc: videoScreenCubit,
           builder: (BuildContext context, VideoStates state) {
+            if (state.status == VideoStatus.dataLoading) {
+              return LoadingApp();
+            }
             if (state.status == VideoStatus.dataLoaded) {
               final List<VideoData> listVideoData = state.video;
               return SingleChildScrollView(

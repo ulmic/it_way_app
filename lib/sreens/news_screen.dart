@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_way_app/blocs/news/news_cubit.dart';
 import 'package:it_way_app/blocs/news/news_state.dart';
+import 'package:it_way_app/components/loading.dart';
 import 'package:it_way_app/data/news_data.dart';
 
 import '../components/news_card.dart';
@@ -31,6 +32,9 @@ class _NewsScreenState extends State<NewsScreen> {
         child: BlocBuilder<NewsCubit, NewsStates>(
           bloc: newsScreenCubit,
           builder: (BuildContext context, NewsStates state) {
+            if (state.status == NewsStatus.dataLoading) {
+              return LoadingApp();
+            }
             if (state.status == NewsStatus.dataLoaded) {
               final List<NewsData> listNewsData = state.news;
               return SingleChildScrollView(
