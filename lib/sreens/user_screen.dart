@@ -21,7 +21,6 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
-  TextEditingController userNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,14 +41,12 @@ class _UserScreenState extends State<UserScreen> {
                     style: LibraryStyle.logInHeading,
                   ),
                 ),
-                TextField(
-                  controller: userNameController,
-                  decoration: InputDecoration(
-                    hintText: 'Введите никнейм',
-                    hintStyle: LibraryStyle.loginText,
-                  ),
+                CircleAvatar(
+                  radius: 50.0,
+                  backgroundColor: Colors.white,
+                  backgroundImage:
+                      AssetImage('assets/images/account_circle.png'),
                 ),
-                SizedBox(height: 30.0),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(

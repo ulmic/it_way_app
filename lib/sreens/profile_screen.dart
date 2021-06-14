@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -23,9 +24,11 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
 
   String email;
   String password;
+  String userName;
   bool showLogin = true;
 
   AuthSrevice authService = AuthSrevice();
@@ -59,8 +62,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     void registerUser() async {
       email = emailController.text;
       password = passwordController.text;
+      userName = userNameController.text;
 
-      if (email.isEmpty || password.isEmpty) return;
+      if (email.isEmpty || password.isEmpty || userName.isEmpty) return;
 
       UserProfile user = await authService.registrWithEmailAndPassword(
           email.trim(), password.trim());
@@ -73,8 +77,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             textColor: Colors.black,
             fontSize: 16.0);
       } else {
+        var ref = FirebaseFirestore.instance.doc('user/${user.id}');
+        ref.set({
+          'name': userName,
+        });
         ScreenNavigation.routeTo(
-            route: LibraryRoutes.userScreenRemove, context: context);
+          route: LibraryRoutes.userScreenRemove,
+          context: context,
+        );
         emailController.clear();
         passwordController.clear();
       }
@@ -126,9 +136,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   controller: passwordController,
                   obscure: true,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 (showLogin
                     ? Column(
                         children: [
+                          LoginWidget(
+                            icon: Icon(
+                              Icons.account_circle,
+                            ),
+                            nameOfCard: 'Введите никнейм',
+                            controller: userNameController,
+                            obscure: false,
+                          ),
                           LoginButton(
                             label: 'Зарегистрироваться',
                             func: registerUser,
